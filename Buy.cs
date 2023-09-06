@@ -6,16 +6,16 @@ public class Buy {
     public Buy() {
         binanceApiClient = new BinanceApiClient("");
     }
-    public void Execute(BuyableCoin coin) {
+    public void Execute(String coin) {
         if (binanceApiClient != null) {
-            Tick[] tick = binanceApiClient.Get24HourStats("SPELLUSDT");
+            Tick[] tick = binanceApiClient.Get24HourStats(coin);
             var tradeParams = new TradeParams
             {
-                price = new Balance().GetBalance("SPELLUSDT"),
+                price = new Balance().GetBalance(coin),
                 stopPrice = Convert.ToDecimal(tick[0].lastPrice) - 0.1m,
-                quantity = new Balance().GetBalance("SPELLUSDT"),
+                quantity = new Balance().GetBalance(coin),
                 side = Side.BUY.ToString(),
-                symbol = "SPELLUSDT",
+                symbol = coin,
                 type = OrderType.STOP_LOSS_LIMIT.ToString()
             };
             binanceApiClient.PostTrade(tradeParams);

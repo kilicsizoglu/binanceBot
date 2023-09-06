@@ -8,12 +8,14 @@
             if (balance.GetUSDTBalance() > 5)
             {
                 Buy buy = new Buy();
-                buy.Execute(new BuyableCoin.Execute());
+                BuyableCoin buyableCoin = new BuyableCoin();
+                buy.Execute(buyableCoin.Execute());
             }
             else if (balance.WithAValueOf5USDT() == true)
             {
                 Sell sell = new Sell();
-                sell.Execute(new SellableCoin.Execute());
+                SellableCoin sellableCoin = new SellableCoin();
+                sell.Execute(sellableCoin.Execute());
             }
         }
     }
