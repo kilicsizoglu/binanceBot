@@ -1,0 +1,235 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "Binance.NetCore/1.6.3": {
+        "type": "package",
+        "dependencies": {
+          "DateTimeHelpers": "1.3.2",
+          "FileRepository": "1.1.1",
+          "RESTApiAccess": "1.3.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Binance.NetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Binance.NetCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "DateTimeHelpers/1.3.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/DateTimeHelpers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/DateTimeHelpers.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FileRepository/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/FileRepository.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FileRepository.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "RESTApiAccess/1.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/RESTApiAccess.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RESTApiAccess.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Binance.NetCore/1.6.3": {
+      "sha512": "kDg14pKJtvBddLvpyqSVY9E32vKont+CbxbXFCUalqjq5JkWsdn4M2W0AwkLiuyRIEEfOKC0LT+9+GJyyPohlw==",
+      "type": "package",
+      "path": "binance.netcore/1.6.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "binance.netcore.1.6.3.nupkg.sha512",
+        "binance.netcore.nuspec",
+        "lib/netstandard2.0/Binance.NetCore.dll",
+        "lib/netstandard2.0/Binance.NetCore.xml"
+      ]
+    },
+    "DateTimeHelpers/1.3.2": {
+      "sha512": "iVA1iUUR1F6U9ZaFbOtC3oJSzqjgFboaK6zid/jl6RlAb5qToe3S3AL4YWoCbWDeJK0bQ+fTQBK1TRzNRkxS5A==",
+      "type": "package",
+      "path": "datetimehelpers/1.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "datetimehelpers.1.3.2.nupkg.sha512",
+        "datetimehelpers.nuspec",
+        "lib/netstandard2.0/DateTimeHelpers.dll",
+        "lib/netstandard2.0/DateTimeHelpers.xml"
+      ]
+    },
+    "FileRepository/1.1.1": {
+      "sha512": "3MpD9oFPlWJ2ZMfxbmSj9fUv5svu27loEWn1+l5zJvJTYaX9BADT+mtsOhRoOdm5xvN9iiFZGlHryHU/ar0DDw==",
+      "type": "package",
+      "path": "filerepository/1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "filerepository.1.1.1.nupkg.sha512",
+        "filerepository.nuspec",
+        "lib/netstandard2.0/FileRepository.dll",
+        "lib/netstandard2.0/FileRepository.xml"
+      ]
+    },
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "type": "package",
+      "path": "newtonsoft.json/11.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
+    "RESTApiAccess/1.3.2": {
+      "sha512": "eaE0ErcY244/7vVyfgey2oW2Bp9OBozdQwnz1rMUUczF+XpDwHtFmf2sZ47msio7jyD4oC5rMiYJGcXV/Jmq2w==",
+      "type": "package",
+      "path": "restapiaccess/1.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/RESTApiAccess.dll",
+        "restapiaccess.1.3.2.nupkg.sha512",
+        "restapiaccess.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "Binance.NetCore >= 1.6.3"
+    ]
+  },
+  "packageFolders": {
+    "/home/kilicsizoglu/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/kilicsizoglu/Desktop/tradebot/tradebot/tradebot.csproj",
+      "projectName": "tradebot",
+      "projectPath": "/home/kilicsizoglu/Desktop/tradebot/tradebot/tradebot.csproj",
+      "packagesPath": "/home/kilicsizoglu/.nuget/packages/",
+      "outputPath": "/home/kilicsizoglu/Desktop/tradebot/tradebot/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/kilicsizoglu/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "Binance.NetCore": {
+            "target": "Package",
+            "version": "[1.6.3, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.10, 7.0.10]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.110/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
