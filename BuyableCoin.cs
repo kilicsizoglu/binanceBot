@@ -3,7 +3,7 @@ using Binance.NetCore.Entities;
 
 public class BuyableCoin {
     private BinanceApiClient? binanceApiClient = null;
-    public Buy() {
+    public BuyableCoin() {
         binanceApiClient = new BinanceApiClient("");
     }
     public string Execute() {

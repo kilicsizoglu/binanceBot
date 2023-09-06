@@ -42,4 +42,17 @@ public class Balance {
         return status;
     }
 
+    public decimal GetBalance(string coin)
+    {
+        decimal coinBalance = 0;
+        if (binanceApiClient != null) {
+            binanceApiClient.GetBalance().balances.ForEach(balance => {
+            if (balance.asset == coin)
+            {
+                coinBalance = balance.free;
+            }
+        });
+        }
+        return coinBalance;
+    }
 }
