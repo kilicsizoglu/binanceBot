@@ -1,21 +1,29 @@
 using Binance.NetCore;
 using Binance.NetCore.Entities;
 
-public class Sell {
+public class Sell
+{
+    string apiKey = "";
+    string apiSecretKey = "";
 
     private BinanceApiClient? binanceApiClient = null;
-    public Sell() {
-        binanceApiClient = new BinanceApiClient("");
+    public Sell(string apiKey, string apiSecretKey)
+    {
+        binanceApiClient = new BinanceApiClient(apiKey, apiSecretKey);
+        this.apiKey = apiKey;
+        this.apiSecretKey = apiSecretKey;
     }
 
-    public void Execute(string coin) {
-        if (binanceApiClient != null) {
+    public void Execute(string coin)
+    {
+        if (binanceApiClient != null)
+        {
             Tick[] tick = binanceApiClient.Get24HourStats(coin);
             var tradeParams = new TradeParams
             {
-                price = new Balance().GetBalance(coin),
+                price = new Balance(apiKey, apiSecretKey).GetBalance(coin),
                 stopPrice = Convert.ToDecimal(tick[0].lastPrice) + 0.1m,
-                quantity = new Balance().GetBalance(coin),
+                quantity = new Balance(apiKey, apiSecretKey).GetBalance(coin),
                 side = Side.SELL.ToString(),
                 symbol = coin,
                 type = OrderType.STOP_LOSS_LIMIT.ToString()

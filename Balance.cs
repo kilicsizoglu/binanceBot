@@ -3,10 +3,10 @@ using Binance.NetCore.Entities;
 
 public class Balance {
 
-    BinanceApiClient? binanceApiClient = null
+    BinanceApiClient? binanceApiClient = null;
 
-    public Balance() {
-        binanceApiClient = new BinanceApiClient("");
+    public Balance(string apiKey, string apiSecretKey) {
+        binanceApiClient = new BinanceApiClient(apiKey, apiSecretKey);
     }
 
     public decimal GetUSDTBalance()
@@ -28,16 +28,18 @@ public class Balance {
         bool status = false;
         decimal coinBalance = 0;
         if (binanceApiClient != null) {
-            binanceApiClient.GetBalance().balances.ForEach(async balance => {
-            if (balance.asset == "SPELLUSDT")
+            binanceApiClient.GetBalance().balances.ForEach(balance =>
             {
-                Tick[] tick = binanceApiClient.Get24HourStats("SPELLUSDT");
-                coinBalance = balance.free / Convert.ToDecimal(tick[0].lastPrice);
-                if (coinBalance > 5) {
-                    status = true;
+                if (balance.asset == "SPELLUSDT")
+                {
+                    Tick[] tick = binanceApiClient.Get24HourStats("SPELLUSDT");
+                    coinBalance = balance.free / Convert.ToDecimal(tick[0].lastPrice);
+                    if (coinBalance > 5)
+                    {
+                        status = true;
+                    }
                 }
-            }
-        });
+            });
         }
         return status;
     }

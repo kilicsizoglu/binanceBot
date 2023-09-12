@@ -3,8 +3,8 @@ using Binance.NetCore.Entities;
 
 public class BuyableCoin {
     private BinanceApiClient? binanceApiClient = null;
-    public BuyableCoin() {
-        binanceApiClient = new BinanceApiClient("");
+    public BuyableCoin(string apiKey, string apiSecretKey) {
+        binanceApiClient = new BinanceApiClient(apiKey, apiSecretKey);
     }
     public string Execute() {
         // SPELLUSDT
