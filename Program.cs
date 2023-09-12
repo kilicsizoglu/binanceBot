@@ -7,13 +7,13 @@
         Balance balance = new Balance(apiKey, apiSecretKey);
         while (true)
         {
-            if (balance.GetUSDTBalance() > 5)
+            if (balance.GetUSDTBalance() >= 5)
             {
                 Buy buy = new Buy(apiKey, apiSecretKey);
                 BuyableCoin buyableCoin = new BuyableCoin(apiKey, apiSecretKey);
                 buy.Execute(buyableCoin.Execute());
             }
-            else if (balance.WithAValueOf5USDT() == true)
+            if (balance.WithAValueOf5USDT() == true)
             {
                 Sell sell = new Sell(apiKey, apiSecretKey);
                 SellableCoin sellableCoin = new SellableCoin(apiKey, apiSecretKey);

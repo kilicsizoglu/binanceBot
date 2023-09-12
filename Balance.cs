@@ -1,24 +1,32 @@
 using Binance.NetCore;
 using Binance.NetCore.Entities;
 
-public class Balance {
+public class Balance
+{
 
     BinanceApiClient? binanceApiClient = null;
 
-    public Balance(string apiKey, string apiSecretKey) {
+    public Balance(string apiKey, string apiSecretKey)
+    {
         binanceApiClient = new BinanceApiClient(apiKey, apiSecretKey);
     }
 
     public decimal GetUSDTBalance()
     {
         decimal usdtBalance = 0;
-        if (binanceApiClient != null) {
-            binanceApiClient.GetBalance().balances.ForEach(balance => {
-            if (balance.asset == "USDT")
+        if (binanceApiClient != null)
+        {
+            Account balance = binanceApiClient.GetBalance();
+            if (balance != null)
             {
-                usdtBalance = balance.free;
+                balance.balances.ForEach(balance =>
+            {
+                if (balance.asset == "USDT")
+                {
+                    usdtBalance = balance.free;
+                }
+            });
             }
-        });
         }
         return usdtBalance;
     }
@@ -27,19 +35,24 @@ public class Balance {
     {
         bool status = false;
         decimal coinBalance = 0;
-        if (binanceApiClient != null) {
-            binanceApiClient.GetBalance().balances.ForEach(balance =>
+        if (binanceApiClient != null)
+        {
+            Account balance = binanceApiClient.GetBalance();
+            if (balance != null)
             {
-                if (balance.asset == "SPELLUSDT")
+                balance.balances.ForEach(balance =>
                 {
-                    Tick[] tick = binanceApiClient.Get24HourStats("SPELLUSDT");
-                    coinBalance = balance.free / Convert.ToDecimal(tick[0].lastPrice);
-                    if (coinBalance > 5)
+                    if (balance.asset == "SPELLUSDT")
                     {
-                        status = true;
+                        Tick[] tick = binanceApiClient.Get24HourStats("SPELLUSDT");
+                        coinBalance = balance.free / Convert.ToDecimal(tick[0].lastPrice);
+                        if (coinBalance > 5)
+                        {
+                            status = true;
+                        }
                     }
-                }
-            });
+                });
+            }
         }
         return status;
     }
@@ -47,13 +60,15 @@ public class Balance {
     public decimal GetBalance(string coin)
     {
         decimal coinBalance = 0;
-        if (binanceApiClient != null) {
-            binanceApiClient.GetBalance().balances.ForEach(balance => {
-            if (balance.asset == coin)
+        if (binanceApiClient != null)
+        {
+            binanceApiClient.GetBalance().balances.ForEach(balance =>
             {
-                coinBalance = balance.free;
-            }
-        });
+                if (balance.asset == coin)
+                {
+                    coinBalance = balance.free;
+                }
+            });
         }
         return coinBalance;
     }

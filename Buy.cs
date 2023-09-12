@@ -14,19 +14,29 @@ public class Buy
     }
     public void Execute(String coin)
     {
-        if (binanceApiClient != null)
+        if (coin != "")
         {
-            Tick[] tick = binanceApiClient.Get24HourStats(coin);
-            var tradeParams = new TradeParams
+            if (binanceApiClient != null)
             {
-                price = new Balance(apiKey, apiSecretKey).GetBalance(coin),
-                stopPrice = Convert.ToDecimal(tick[0].lastPrice) - 0.1m,
-                quantity = new Balance(apiKey, apiSecretKey).GetBalance(coin),
-                side = Side.BUY.ToString(),
-                symbol = coin,
-                type = OrderType.STOP_LOSS_LIMIT.ToString()
-            };
-            binanceApiClient.PostTrade(tradeParams);
+                Tick[] tick = binanceApiClient.Get24HourStats(coin);
+                try
+                {
+                    var tradeParams = new TradeParams
+                    {
+                        price = new Balance(apiKey, apiSecretKey).GetBalance(coin),
+                        stopPrice = Convert.ToDecimal(tick[0].lastPrice) - 0.1m,
+                        quantity = new Balance(apiKey, apiSecretKey).GetBalance(coin),
+                        side = Side.BUY.ToString(),
+                        symbol = coin,
+                        type = OrderType.STOP_LOSS_LIMIT.ToString()
+                    };
+                    binanceApiClient.PostTrade(tradeParams);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
         }
     }
 }
